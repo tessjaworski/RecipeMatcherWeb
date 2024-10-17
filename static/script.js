@@ -2,7 +2,6 @@ let ingredients = [];
 let offset = 0;
 const limit = 10;
 
-// Function to add ingredients
 function addIngredient() {
     const ingredientInput = document.getElementById('ingredientInput');
     const ingredient = ingredientInput.value.trim();
@@ -14,8 +13,7 @@ function addIngredient() {
     }
 }
 
-// Function to select ingredient for removal
-let selectedIngredients = []; // Array to hold multiple selected ingredients
+let selectedIngredients = [];
 
 function selectIngredient(ingredient) {
     if (selectedIngredients.includes(ingredient)) {
@@ -67,7 +65,7 @@ function updateIngredientList() {
     highlightSelectedIngredients();
 }
 
-// Function to suggest recipes based on ingredients
+//suggest recipes based on ingredients
 function suggestRecipes() {
     if (ingredients.length === 0) {
         alert('Please add some ingredients first!');
@@ -78,7 +76,7 @@ function suggestRecipes() {
     fetchRecipes();
 }
 
-// Function to fetch recipes from the backend
+//fetch recipes from the backend
 function fetchRecipes() {
     fetch('/recipes', {
         method: 'POST',
@@ -96,7 +94,7 @@ function fetchRecipes() {
         if (data.error) {
             alert(data.error);
         } else {
-            displayRecipes(data); // Display the recipes
+            displayRecipes(data);
         }
     })
     .catch(error => {
@@ -104,7 +102,7 @@ function fetchRecipes() {
     });
 }
 
-// Function to display the fetched recipes
+//display the fetched recipes
 function displayRecipes(recipes) {
     const recipeSection = document.getElementById('recipe-section');
     recipeSection.innerHTML = ''; // Clear the previous results to replace with new ones
@@ -114,7 +112,7 @@ function displayRecipes(recipes) {
         return;
     }
 
-    // Create a two-column layout using divs
+    //two-column layout using divs
     const leftColumn = document.createElement('div');
     leftColumn.classList.add('column');
 
@@ -146,7 +144,6 @@ function displayRecipes(recipes) {
         // Initially hidden using display: none
         recipeDetails.style.display = 'none';
 
-        // Toggle details visibility with smooth height transition
         recipeTitle.addEventListener('click', () => {
             if (recipeDetails.style.display === 'none') {
                 recipeDetails.style.display = 'block';
@@ -174,7 +171,7 @@ function displayRecipes(recipes) {
 
     offset += limit;
 }
-// Function to load new recipes (replacing current ones)
+// Function to load new recipes
 function loadMoreRecipes() {
     fetchRecipes();
 }

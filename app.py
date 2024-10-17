@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-# Function to create the database
+#creates the database
 def create_database():
     conn = sqlite3.connect('recipes.db')
     cur = conn.cursor()
@@ -21,7 +21,7 @@ def create_database():
     conn.commit()
     conn.close()
 
-# Function to insert CSV data into the database
+#inserts CSV data into the database
 def insert_csv_data():
     conn = sqlite3.connect('recipes.db')
     cur = conn.cursor()
@@ -29,8 +29,7 @@ def insert_csv_data():
     with open('recipes.csv', 'r', newline='', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            # Clean up ingredients (this step depends on your CSV structure)
-            ingredients = row['Ingredients'].lower()  # Adjust based on your CSV headers
+            ingredients = row['Ingredients'].lower()
             cur.execute('''
                INSERT INTO recipes (name, ingredients, instructions)
                VALUES (?, ?, ?)
@@ -48,8 +47,8 @@ def home():
 def get_recipes():
     data = request.json
     ingredients = data.get('ingredients', [])
-    limit = data.get('limit', 10)  # Default to 10 recipes
-    offset = data.get('offset', 0)  # Default to 0 (start)
+    limit = data.get('limit', 10)  # Load 10 recipes at once
+    offset = data.get('offset', 0)  # 0 recipes in beginning
 
     if not ingredients:
         return jsonify({'error': 'No ingredients provided'}), 400
@@ -75,5 +74,5 @@ def get_recipes():
 
 if __name__ == '__main__':
     create_database()
-    insert_csv_data()  # Insert CSV data into the database when the server starts
+    insert_csv_data()
     app.run(debug=True)
