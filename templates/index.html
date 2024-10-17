@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Matcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+<div class="hero">
+    <h1>Welcome to RecipeMatcher</h1>
+    <p>Find recipes based on the ingredients you have!</p>
+</div>
+    <div class="container">
+        <h1>Add your ingredients below!</h1>
+
+        <div class="input-container">
+            <input type="text" id="ingredientInput" placeholder="Enter an ingredient">
+            <button id="addButton">Add Ingredient</button>
+        </div>
+
+        <!-- Box for showing the list of ingredients -->
+        <div class="ingredient-box">
+            <h2>Your Ingredients</h2>
+            <ul id="ingredientList"></ul>
+        </div>
+
+        <div class="button-container">
+    <button id="suggestButton">Suggest Recipes</button>
+    <button id="removeButton">Remove Selected Ingredients</button> <!-- Moved here -->
+    <button id="loadMoreButton">Load More</button>
+</div>
+
+        <div id="recipe-section"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+body {
+        background: linear-gradient(to right, #e0f7fa, #f8f9fa) !important; /* Soft gradient background */
+        color: #333;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        /* Removed display: flex and height: 100vh to allow for natural scrolling */
+        height: auto; /* Allow the height to expand based on content */
+    }
+
+    /* Main container */
+
+    .container {
+        width: 90%;
+        max-width: 600px;
+        background-color: #fff; /* White background for contrast */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+        text-align: center;
+        margin: 0 auto; /* Ensure the container is centered */
+    }
+
+    /* Headline */
+
+    h1 {
+        font-size: 28px;
+        color: #007BFF; /* Light blue to match buttons */
+        margin-bottom: 20px;
+    }
+
+    /* Input container and button */
+
+    .input-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        border-radius: 8px; /* More rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"] {
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for input */
+        border-radius: 5px;
+        width: 70%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .button-container {
+    display: flex;
+    justify-content: space-around; /* Evenly space buttons */
+    margin-top: 20px;
+}
+
+    button:hover {
+        background-color: #218838;
+        transform: translateY(-2px); /* Adds a subtle 3D hover effect */
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* A soft shadow for depth */
+    }
+
+    /* Ingredient Box */
+
+    .ingredient-box {
+        margin: 20px 0;
+        padding: 15px;
+        border: 2px solid #007BFF;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007BFF; /* Match the button color */
+}
+
+
+    .ingredient-box h2 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul li {
+        background-color: #007BFF;
+        color: white;
+        padding: 8px 12px;
+        margin: 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-block;
+        transition: opacity 0.3s ease-out;
+    }
+
+    ul li.removed {
+        opacity: 0;
+    }
+
+    ul li:hover {
+        background-color: #0056b3;
+    }
+
+    /* Button container styling */
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    /* Recipe section */
+
+    #recipe-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+        gap: 20px; /* Space between columns */
+        margin-top: 20px;
+    }
+
+    /* Style for each recipe block */
+
+    .recipe {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.2s;
+    }
+
+    /* Recipe hover effect */
+
+    .recipe:hover {
+        transform: scale(1.03); /* Add a zoom effect on hover */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style for recipe title */
+
+    .recipe h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #333;
+        cursor: pointer;
+    }
+
+    /* Recipe details: hidden initially, with smooth transitions and a fixed height */
+
+    .recipe-details {
+        display: none; /* Hidden initially */
+        transition: max-height 0.4s ease-in-out;
+        max-height: 300px; /* Limit height for large content */
+        overflow-y: auto; /* Allow scrolling within the recipe details */
+        padding: 10px 0;
+        margin-top: 10px;
+        border-top: 1px solid #ddd;
+    }
+
+    /* Recipe detail content */
+
+    .recipe-details p {
+        margin: 0;
+        padding: 5px 0;
+    }
+
+    #recipe-section div {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+    }
+
+    #recipe-section h2 {
+        margin: 0;
+        color: #333;
+    }
+
+    #recipe-section p {
+        color: #555;
+        font-size: 14px;
+    }
+
+    .hero {
+    background-image: url('hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5px 20px;
+    text-align: center;
+    color: white;
+        margin-bottom: 40px;
+        position: relative;
+}
+    .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1;
+}
+
+
+.hero h1 {
+     position: relative;
+    z-index: 2; /* Ensure text is above the overlay */
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+     position: relative;
+    z-index: 2; /* Ensure text is above the overlay */
+    color: white;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
