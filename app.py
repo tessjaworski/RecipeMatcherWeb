@@ -38,6 +38,11 @@ def insert_csv_data():
     conn.commit()
     conn.close()
 
+@app.before_first_request
+def init_db():
+    create_database()
+    insert_csv_data()
+
 @app.route('/')
 def home():
     return render_template('index.html')
