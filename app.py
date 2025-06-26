@@ -31,17 +31,15 @@ def insert_csv_data():
         for row in reader:
             ingredients = row['Ingredients'].lower()
             cur.execute('''
-               INSERT INTO recipes (name, ingredients, instructions)
+               INSERT OR IGNORE INTO recipes (name, ingredients, instructions)
                VALUES (?, ?, ?)
                ''', (row['Title'], ingredients, row['Instructions']))
 
     conn.commit()
     conn.close()
 
-@app.before_first_request
-def init_db():
-    create_database()
-    insert_csv_data()
+create_database()
+insert_csv_data()
 
 @app.route('/')
 def home():
@@ -78,6 +76,4 @@ def get_recipes():
     return jsonify(recipes)
 
 if __name__ == '__main__':
-    create_database()
-    insert_csv_data()
     app.run(debug=True)
