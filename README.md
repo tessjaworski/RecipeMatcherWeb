@@ -11,10 +11,10 @@
 
 ## Live Demo
 Check out the live version of the application here:  
-[**RecipeMatcher**](https://recipematcher-1cc26bb41183.herokuapp.com/)
+[**RecipeMatcher**](https://recipematcher-40lc.onrender.com/)
 
 ## Technologies Used
 - Front-End: HTML, CSS, JavaScript
 - Back-End: Python, Flask
 - Database: SQLite
-- Web Hosting: Hosted on Heroku
+- Web Hosting: Hosted on Render
